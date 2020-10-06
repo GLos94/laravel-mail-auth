@@ -26,10 +26,11 @@
                   </ul>
 
                   @auth
-
+                    
+                    <a class="btn btn-secondary" href="{{ route('post.create') }}">CREATE NEW POST</a>
                     <a class="btn btn-primary" href="{{ route('post.edit', $post -> id) }}">EDIT</a>
                     <a class="btn btn-danger" href="{{ route('post.delete', $post -> id) }}">DELETE</a>
-                    <a class="btn btn-secondary" href="{{ route('post.create') }}">CREATE NEW POST</a>
+
                   @else
                     <h2>
                       If you want perfom an action, please <a class="btn btn-secondary" href="{{ route('login')}}">LOGIN</a>
