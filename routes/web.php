@@ -17,3 +17,16 @@ Route::get('/edit/{id}', 'LoggedController@edit') -> name('post.edit');
 Route::post('/update/{id}', 'LoggedController@update') -> name('post.update');
 
 Route::get('/show/{id}', 'GuestController@show') -> name('post.show');
+
+
+// previewing mailables in the browser
+Route::get('/mailable', function(){
+
+  $user = App\User::inRandomOrder() -> first();
+  $post = App\Post::inRandomOrder() -> first();
+  $action = 'DELETE';
+
+  return new App\Mail\UserAction($user, $post, $action);
+
+
+});
